@@ -12,10 +12,12 @@ class Word2Vec {
 
   // Cosine similarity!
   static distance(v1, v2) {
-    // Check if v1 or v2 is a string then grab vector?
-    // let v1 = wordVecs[word1];
-    // let v2 = wordVecs[word2];
-
+    if(typeof v1 == "string"){
+      v1 = wordVecs[v1];
+    }
+    if(typeof v2 == "string"){
+      v2 = wordVecs[v2];
+    }
     let sum = v1.reduce((sum, a, i) => {
       return sum + a * v2[i];
     }, 0);
